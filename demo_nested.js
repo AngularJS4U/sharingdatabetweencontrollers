@@ -1,20 +1,21 @@
-<body ng-app="MyApp">
-  <div ng-controller="MyCtrl">
-    <label>Primitive</label>
-    <input type="text" ng-model="name">
+(function() {
+  'use strict';
 
-    <label>Object</label>
-    <input type="text" ng-model=å"user.name">
+  angular
+    .module("MyApp", []);
 
-    <div class="nested" ng-controller="MyNestedCtrl">
-      <label>Primitive</label>
-      <input type="text" ng-model="name">
+  angular
+    .module("MyApp")
+    .controller("MyCtrl", function($scope) {
+      $scope.name = "Peter";
+      $scope.user = {
+        name: "Parker"
+      };
+    });
 
-      <label>Primitive with explicit $parent reference</label>
-      <input type="text" ng-model="$parent.name">
-
-      <label>Object</label>
-      <input type="text" ng-model="user.name">
-    </div>
-  </div>
-</body>
+  angular
+    .module("MyApp")
+    .controller("MyNestedCtrl", function($scope) {
+    }); 
+    
+})();
